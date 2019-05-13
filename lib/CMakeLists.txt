@@ -51,6 +51,7 @@ endif()
 
 GR_OSMOSDR_APPEND_LIBS(
     ${Boost_LIBRARIES}
+    gnuradio::gnuradio-blocks
     ${GNURADIO_ALL_LIBRARIES}
 )
 
