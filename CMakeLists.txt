@@ -212,6 +212,7 @@ find_package(Volk)
 find_package(LibbladeRF)
 find_package(SoapySDR NO_MODULE)
 find_package(LibFreeSRP)
+find_package(LibXTRX)
 find_package(Doxygen)
 
 #get_cmake_property(_variableNames VARIABLES)
@@ -253,7 +254,7 @@ set(GR_OSMOSDR_SWIG_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/swig CACHE INTERNAL
 # Create uninstall target
 ########################################################################
 configure_file(
-    ${CMAKE_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in
+    ${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in
     ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake
 @ONLY)
 
