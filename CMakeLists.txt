@@ -112,7 +112,7 @@ ENDIF()
 ########################################################################
 # Install directories
 ########################################################################
-find_package(Gnuradio REQUIRED) # Side effect of MODULE_PATH getting prepended with system components
+find_package(Gnuradio REQUIRED COMPONENT blocks) # Side effect of MODULE_PATH getting prepended with system components
 list(REVERSE CMAKE_MODULE_PATH)
 set(MIN_GR_VERSION "3.8")
 if("${Gnuradio_VERSION}" VERSION_LESS MIN_GR_VERSION)
@@ -165,10 +165,10 @@ endif(APPLE)
 ########################################################################
 # Find build dependencies
 ########################################################################
-set(GR_REQUIRED_COMPONENTS RUNTIME PMT BLOCKS)
-
-find_package(gnuradio-blocks PATHS ${GR_PREFIX}/lib/cmake/gnuradio/)
-message(STATUS "Found Block Block: ${gnuradio-blocks_FOUND}")
+#set(GR_REQUIRED_COMPONENTS RUNTIME PMT BLOCKS)
+#
+#find_package(gnuradio-blocks PATHS ${GR_PREFIX}/lib/cmake/gnuradio/)
+#message(STATUS "Found Block Block: ${gnuradio-blocks_FOUND}")
 
 #[[find_package(gnuradio-pmt PATHS ${GR_PREFIX}/lib/cmake/gnuradio/)
 message(STATUS "Found PMT Block: ${gnuradio-pmt_FOUND}")
