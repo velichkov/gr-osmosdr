@@ -2,14 +2,14 @@ if(NOT LIBRTLSDR_FOUND)
   pkg_check_modules (LIBRTLSDR_PKG librtlsdr)
   find_path(LIBRTLSDR_INCLUDE_DIRS NAMES rtl-sdr.h
     PATHS
-    ${LIBRTLSDR_PKG_INCLUDE_DIRS}
+    ${LIBRTLSDR_PKG_INCLUDEDIR}
     /usr/include
     /usr/local/include
   )
 
   find_library(LIBRTLSDR_LIBRARIES NAMES rtlsdr
     PATHS
-    ${LIBRTLSDR_PKG_LIBRARY_DIRS}
+    ${LIBRTLSDR_PKG_LIBDIR}
     /usr/lib
     /usr/local/lib
   )

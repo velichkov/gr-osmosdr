@@ -31,28 +31,28 @@
 #include <gnuradio/constants.h>
 
 #ifdef ENABLE_UHD
-#include "uhd_sink_c.h"
+#include "uhd/uhd_sink_c.h"
 #endif
 #ifdef ENABLE_HACKRF
-#include "hackrf_sink_c.h"
+#include "hackrf/hackrf_sink_c.h"
 #endif
 #ifdef ENABLE_BLADERF
-#include "bladerf_sink_c.h"
+#include "bladerf/bladerf_sink_c.h"
 #endif
 #ifdef ENABLE_SOAPY
-#include "soapy_sink_c.h"
+#include "soapy/soapy_sink_c.h"
 #endif
 #ifdef ENABLE_REDPITAYA
-#include "redpitaya_sink_c.h"
+#include "redpitaya/redpitaya_sink_c.h"
 #endif
 #ifdef ENABLE_FREESRP
-#include <freesrp_sink_c.h>
+#include "freesrp/freesrp_sink_c.h"
 #endif
 #ifdef ENABLE_XTRX
-#include "xtrx_sink_c.h"
+#include "xtrx/xtrx_sink_c.h"
 #endif
 #ifdef ENABLE_FILE
-#include "file_sink_c.h"
+#include "file/file_sink_c.h"
 #endif
 
 #include "arg_helpers.h"

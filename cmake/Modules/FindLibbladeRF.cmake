@@ -2,14 +2,14 @@ if(NOT LIBBLADERF_FOUND)
   pkg_check_modules (LIBBLADERF_PKG libbladeRF)
   find_path(LIBBLADERF_INCLUDE_DIRS NAMES libbladeRF.h
     PATHS
-    ${LIBBLADERF_PKG_INCLUDE_DIRS}
+    ${LIBBLADERF_PKG_INCLUDEDIR}
     /usr/include
     /usr/local/include
   )
 
   find_library(LIBBLADERF_LIBRARIES NAMES bladeRF
     PATHS
-    ${LIBBLADERF_PKG_LIBRARY_DIRS}
+    ${LIBBLADERF_PKG_LIBDIR}
     /usr/lib
     /usr/local/lib
   )

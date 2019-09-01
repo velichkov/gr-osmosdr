@@ -47,3 +47,6 @@ endif(ENABLE_FCD)
 if(ENABLE_FCDPP)
 list(APPEND gr_osmosdr_libs ${GNURADIO_FCDPP_LIBRARIES})
 endif(ENABLE_FCDPP)
+
+set(gr_osmosdr_srcs ${gr_osmosdr_srcs} PARENT_SCOPE)
+set(gr_osmosdr_libs ${gr_osmosdr_libs} PARENT_SCOPE)

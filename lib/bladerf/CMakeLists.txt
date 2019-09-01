@@ -38,3 +38,5 @@ set(bladerf_srcs
 ########################################################################
 list(APPEND gr_osmosdr_srcs ${bladerf_srcs})
 list(APPEND gr_osmosdr_libs ${LIBBLADERF_LIBRARIES} ${VOLK_LIBRARIES})
+set(gr_osmosdr_srcs ${gr_osmosdr_srcs} PARENT_SCOPE)
+set(gr_osmosdr_libs ${gr_osmosdr_libs} PARENT_SCOPE)

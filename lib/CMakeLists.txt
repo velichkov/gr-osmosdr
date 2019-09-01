@@ -119,11 +119,11 @@ SET_SOURCE_FILES_PROPERTIES(
 ########################################################################
 # Setup IQBalance component
 ########################################################################
-GR_REGISTER_COMPONENT("Osmocom IQ Imbalance Correction" ENABLE_IQBALANCE GNURADIO_IQBALANCE_FOUND)
+GR_REGISTER_COMPONENT("Osmocom IQ Imbalance Correction" ENABLE_IQBALANCE IQBALANCE_FOUND)
 if(ENABLE_IQBALANCE)
 add_definitions(-DHAVE_IQBALANCE=1)
-include_directories(${GNURADIO_IQBALANCE_INCLUDE_DIRS})
-GR_OSMOSDR_APPEND_LIBS(${GNURADIO_IQBALANCE_LIBRARIES})
+include_directories(${IQBALANCE_INCLUDE_DIRS})
+GR_OSMOSDR_APPEND_LIBS(${IQBALANCE_LIBRARIES})
 endif(ENABLE_IQBALANCE)
 
 ########################################################################
@@ -131,7 +131,7 @@ endif(ENABLE_IQBALANCE)
 ########################################################################
 GR_REGISTER_COMPONENT("sysmocom OsmoSDR" ENABLE_OSMOSDR LIBOSMOSDR_FOUND)
 if(ENABLE_OSMOSDR)
-GR_INCLUDE_SUBDIRECTORY(osmosdr)
+add_subdirectory(osmosdr)
 endif(ENABLE_OSMOSDR)
 
 ########################################################################
@@ -139,7 +139,7 @@ endif(ENABLE_OSMOSDR)
 ########################################################################
 GR_REGISTER_COMPONENT("IQ File Source & Sink" ENABLE_FILE GNURADIO_BLOCKS_FOUND)
 if(ENABLE_FILE)
-GR_INCLUDE_SUBDIRECTORY(file)
+add_subdirectory(file)
 endif(ENABLE_FILE)
 
 ########################################################################
@@ -147,7 +147,7 @@ endif(ENABLE_FILE)
 ########################################################################
 GR_REGISTER_COMPONENT("Osmocom RTLSDR" ENABLE_RTL LIBRTLSDR_FOUND)
 if(ENABLE_RTL)
-GR_INCLUDE_SUBDIRECTORY(rtl)
+add_subdirectory(rtl)
 endif(ENABLE_RTL)
 
 ########################################################################
@@ -155,15 +155,15 @@ endif(ENABLE_RTL)
 ########################################################################
 GR_REGISTER_COMPONENT("RTLSDR TCP Client" ENABLE_RTL_TCP GNURADIO_BLOCKS_FOUND)
 if(ENABLE_RTL_TCP)
-GR_INCLUDE_SUBDIRECTORY(rtl_tcp)
+add_subdirectory(rtl_tcp)
 endif(ENABLE_RTL_TCP)
 
 ########################################################################
 # Setup UHD component
 ########################################################################
-GR_REGISTER_COMPONENT("Ettus USRP Devices" ENABLE_UHD UHD_FOUND GNURADIO_UHD_FOUND)
+GR_REGISTER_COMPONENT("Ettus USRP Devices" ENABLE_UHD GNURADIO_UHD_FOUND)
 if(ENABLE_UHD)
-GR_INCLUDE_SUBDIRECTORY(uhd)
+add_subdirectory(uhd)
 endif(ENABLE_UHD)
 
 ########################################################################
@@ -171,7 +171,7 @@ endif(ENABLE_UHD)
 ########################################################################
 GR_REGISTER_COMPONENT("Osmocom MiriSDR" ENABLE_MIRI LIBMIRISDR_FOUND)
 if(ENABLE_MIRI)
-GR_INCLUDE_SUBDIRECTORY(miri)
+add_subdirectory(miri)
 endif(ENABLE_MIRI)
 
 ########################################################################
@@ -180,7 +180,7 @@ endif(ENABLE_MIRI)
 if(ENABLE_NONFREE)
 GR_REGISTER_COMPONENT("SDRplay RSP (NONFREE)" ENABLE_SDRPLAY LIBSDRPLAY_FOUND)
 if(ENABLE_SDRPLAY)
-GR_INCLUDE_SUBDIRECTORY(sdrplay)
+add_subdirectory(sdrplay)
 endif(ENABLE_SDRPLAY)
 endif(ENABLE_NONFREE)
 
@@ -189,7 +189,7 @@ endif(ENABLE_NONFREE)
 ########################################################################
 GR_REGISTER_COMPONENT("HackRF & rad1o Badge" ENABLE_HACKRF LIBHACKRF_FOUND)
 if(ENABLE_HACKRF)
-GR_INCLUDE_SUBDIRECTORY(hackrf)
+add_subdirectory(hackrf)
 endif(ENABLE_HACKRF)
 
 ########################################################################
@@ -197,7 +197,7 @@ endif(ENABLE_HACKRF)
 ########################################################################
 GR_REGISTER_COMPONENT("nuand bladeRF" ENABLE_BLADERF LIBBLADERF_FOUND)
 if(ENABLE_BLADERF)
-GR_INCLUDE_SUBDIRECTORY(bladerf)
+add_subdirectory(bladerf)
 endif(ENABLE_BLADERF)
 
 ########################################################################
@@ -205,7 +205,7 @@ endif(ENABLE_BLADERF)
 ########################################################################
 GR_REGISTER_COMPONENT("RFSPACE Receivers" ENABLE_RFSPACE)
 if(ENABLE_RFSPACE)
-GR_INCLUDE_SUBDIRECTORY(rfspace)
+add_subdirectory(rfspace)
 endif(ENABLE_RFSPACE)
 
 ########################################################################
@@ -213,7 +213,7 @@ endif(ENABLE_RFSPACE)
 ########################################################################
 GR_REGISTER_COMPONENT("AIRSPY Receiver" ENABLE_AIRSPY LIBAIRSPY_FOUND)
 if(ENABLE_AIRSPY)
-GR_INCLUDE_SUBDIRECTORY(airspy)
+add_subdirectory(airspy)
 endif(ENABLE_AIRSPY)
 
 ########################################################################
@@ -221,7 +221,7 @@ endif(ENABLE_AIRSPY)
 ########################################################################
 GR_REGISTER_COMPONENT("SoapySDR support" ENABLE_SOAPY SoapySDR_FOUND)
 if(ENABLE_SOAPY)
-GR_INCLUDE_SUBDIRECTORY(soapy)
+add_subdirectory(soapy)
 endif(ENABLE_SOAPY)
 
 ########################################################################
@@ -229,7 +229,7 @@ endif(ENABLE_SOAPY)
 ########################################################################
 GR_REGISTER_COMPONENT("Red Pitaya SDR" ENABLE_REDPITAYA)
 if(ENABLE_REDPITAYA)
-GR_INCLUDE_SUBDIRECTORY(redpitaya)
+add_subdirectory(redpitaya)
 endif(ENABLE_REDPITAYA)
 
 ########################################################################
@@ -237,7 +237,7 @@ endif(ENABLE_REDPITAYA)
 ########################################################################
 GR_REGISTER_COMPONENT("FreeSRP support" ENABLE_FREESRP LIBFREESRP_FOUND)
 if(ENABLE_FREESRP)
-GR_INCLUDE_SUBDIRECTORY(freesrp)
+add_subdirectory(freesrp)
 endif(ENABLE_FREESRP)
 
 ########################################################################
@@ -245,7 +245,7 @@ endif(ENABLE_FREESRP)
 ########################################################################
 GR_REGISTER_COMPONENT("XTRX SDR" ENABLE_XTRX LIBXTRX_FOUND)
 if(ENABLE_XTRX)
-GR_INCLUDE_SUBDIRECTORY(xtrx)
+add_subdirectory(xtrx)
 endif(ENABLE_XTRX)
 
 ########################################################################

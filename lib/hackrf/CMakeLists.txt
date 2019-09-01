@@ -45,3 +45,5 @@ endif(LIBHACKRF_HAVE_DEVICE_LIST)
 ########################################################################
 list(APPEND gr_osmosdr_srcs ${hackrf_srcs})
 list(APPEND gr_osmosdr_libs ${LIBHACKRF_LIBRARIES})
+set(gr_osmosdr_srcs ${gr_osmosdr_srcs} PARENT_SCOPE)
+set(gr_osmosdr_libs ${gr_osmosdr_libs} PARENT_SCOPE)

@@ -2,14 +2,14 @@ if(NOT LIBMIRISDR_FOUND)
   pkg_check_modules (LIBMIRISDR_PKG libmirisdr)
   find_path(LIBMIRISDR_INCLUDE_DIRS NAMES mirisdr.h
     PATHS
-    ${LIBMIRISDR_PKG_INCLUDE_DIRS}
+    ${LIBMIRISDR_PKG_INCLUDEDIR}
     /usr/include
     /usr/local/include
   )
 
   find_library(LIBMIRISDR_LIBRARIES NAMES mirisdr
     PATHS
-    ${LIBMIRISDR_PKG_LIBRARY_DIRS}
+    ${LIBMIRISDR_PKG_LIBDIR}
     /usr/lib
     /usr/local/lib
   )

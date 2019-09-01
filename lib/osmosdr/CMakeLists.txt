@@ -35,3 +35,5 @@ set(osmosdr_srcs
 ########################################################################
 list(APPEND gr_osmosdr_srcs ${osmosdr_srcs})
 list(APPEND gr_osmosdr_libs ${LIBOSMOSDR_LIBRARIES})
+set(gr_osmosdr_srcs ${gr_osmosdr_srcs} PARENT_SCOPE)
+set(gr_osmosdr_libs ${gr_osmosdr_libs} PARENT_SCOPE)

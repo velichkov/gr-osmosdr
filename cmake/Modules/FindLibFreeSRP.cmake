@@ -2,14 +2,14 @@ if(NOT LIBFREESRP_FOUND)
   pkg_check_modules (LIBFREESRP_PKG libfreesrp)
   find_path(LIBFREESRP_INCLUDE_DIRS NAMES freesrp.hpp
     PATHS
-    ${LIBFREESRP_PKG_INCLUDE_DIRS}
+    ${LIBFREESRP_PKG_INCLUDEDIR}
     /usr/include
     /usr/local/include
   )
 
   find_library(LIBFREESRP_LIBRARIES NAMES freesrp
     PATHS
-    ${LIBFREESRP_PKG_LIBRARY_DIRS}
+    ${LIBFREESRP_PKG_LIBDIR}
     /usr/lib
     /usr/local/lib
   )

@@ -36,4 +36,7 @@ set(uhd_srcs
 # Append gnuradio-osmosdr library sources
 ########################################################################
 list(APPEND gr_osmosdr_srcs ${uhd_srcs})
-list(APPEND gr_osmosdr_libs ${GNURADIO_UHD_LIBRARIES} ${UHD_LIBRARIES})
+list(APPEND gr_osmosdr_libs gnuradio::gnuradio-uhd)
+#target_link_libraries(gnuradio-osmosdr gnuradio::uhd)
+set(gr_osmosdr_srcs ${gr_osmosdr_srcs} PARENT_SCOPE)
+set(gr_osmosdr_libs ${gr_osmosdr_libs} PARENT_SCOPE)

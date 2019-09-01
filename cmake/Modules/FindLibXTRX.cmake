@@ -2,14 +2,14 @@ if(NOT LIBXTRX_FOUND)
   pkg_check_modules (LIBXTRX_PKG libxtrx)
   find_path(LIBXTRX_INCLUDE_DIRS NAMES xtrx_api.h
     PATHS
-    ${LIBXTRX_PKG_INCLUDE_DIRS}
+    ${LIBXTRX_PKG_INCLUDEDIR}
     /usr/include
     /usr/local/include
   )
 
   find_library(LIBXTRX_LIBRARIES NAMES xtrx
     PATHS
-    ${LIBXTRX_PKG_LIBRARY_DIRS}
+    ${LIBXTRX_PKG_LIBDIR}
     /usr/lib
     /usr/local/lib
   )

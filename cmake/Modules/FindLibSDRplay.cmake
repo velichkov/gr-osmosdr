@@ -2,14 +2,14 @@ if(NOT LIBSDRPLAY_FOUND)
   pkg_check_modules (LIBSDRPLAY_PKG libsdrplay)
   find_path(LIBSDRPLAY_INCLUDE_DIRS NAMES mirsdrapi-rsp.h
     PATHS
-    ${LIBSDRPLAY_PKG_INCLUDE_DIRS}
+    ${LIBSDRPLAY_PKG_INCLUDEDIR}
     /usr/include
     /usr/local/include
   )
 
   find_library(LIBSDRPLAY_LIBRARIES NAMES mirsdrapi-rsp
     PATHS
-    ${LIBSDRPLAY_PKG_LIBRARY_DIRS}
+    ${LIBSDRPLAY_PKG_LIBDIR}
     /usr/lib
     /usr/local/lib
   )

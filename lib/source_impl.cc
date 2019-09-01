@@ -33,31 +33,31 @@
 #include <gnuradio/constants.h>
 
 #ifdef ENABLE_OSMOSDR
-#include <osmosdr_src_c.h>
+#include "osmosdr/osmosdr_src_c.h"
 #endif
 
 #ifdef ENABLE_FCD
-#include <fcd_source_c.h>
+#include "fcd/fcd_source_c.h"
 #endif
 
 #ifdef ENABLE_FILE
-#include <file_source_c.h>
+#include "file/file_source_c.h"
 #endif
 
 #ifdef ENABLE_RTL
-#include <rtl_source_c.h>
+#include "rtl/rtl_source_c.h"
 #endif
 
 #ifdef ENABLE_RTL_TCP
-#include <rtl_tcp_source_c.h>
+#include "rtl_tcp/rtl_tcp_source_c.h"
 #endif
 
 #ifdef ENABLE_UHD
-#include <uhd_source_c.h>
+#include "uhd/uhd_source_c.h"
 #endif
 
 #ifdef ENABLE_MIRI
-#include <miri_source_c.h>
+#include "miri/miri_source_c.h"
 #endif
 
 #ifdef ENABLE_SDRPLAY
@@ -65,34 +65,34 @@
 #endif
 
 #ifdef ENABLE_HACKRF
-#include <hackrf_source_c.h>
+#include "hackrf/hackrf_source_c.h"
 #endif
 
 #ifdef ENABLE_BLADERF
-#include <bladerf_source_c.h>
+#include "bladerf/bladerf_source_c.h"
 #endif
 
 #ifdef ENABLE_RFSPACE
-#include <rfspace_source_c.h>
+#include "rfspace/rfspace_source_c.h"
 #endif
 
 #ifdef ENABLE_AIRSPY
-#include <airspy_source_c.h>
+#include "airspy/airspy_source_c.h"
 #endif
 
 #ifdef ENABLE_SOAPY
-#include <soapy_source_c.h>
+#include "soapy/soapy_source_c.h"
 #endif
 
 #ifdef ENABLE_REDPITAYA
-#include <redpitaya_source_c.h>
+#include "redpitaya/redpitaya_source_c.h"
 #endif
 
 #ifdef ENABLE_FREESRP
-#include <freesrp_source_c.h>
+#include "freesrp/freesrp_source_c.h"
 #endif
 #ifdef ENABLE_XTRX
-#include <xtrx_source_c.h>
+#include "xtrx/xtrx_source_c.h"
 #endif
 
 #include "arg_helpers.h"

@@ -49,10 +49,10 @@ list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake/Modules)
 set(ENABLE_NONFREE FALSE CACHE BOOL "Enable or disable nonfree components.")
 
 # Set the version information here
-set(VERSION_INFO_MAJOR_VERSION 0)
-set(VERSION_INFO_API_COMPAT    1)
-set(VERSION_INFO_MINOR_VERSION 5)
-set(VERSION_INFO_MAINT_VERSION git)
+set(VERSION_MAJOR  0)
+set(VERSION_API    1)
+set(VERSION_ABI    5)
+set(VERSION_PATCH  git)
 
 cmake_policy(SET CMP0011 NEW)
 
@@ -112,12 +112,8 @@ ENDIF()
 ########################################################################
 # Install directories
 ########################################################################
-find_package(Gnuradio REQUIRED COMPONENT blocks) # Side effect of MODULE_PATH getting prepended with system components
+find_package(Gnuradio "3.8" REQUIRED COMPONENTS blocks uhd) # Side effect of MODULE_PATH getting prepended with system components
 list(REVERSE CMAKE_MODULE_PATH)
-set(MIN_GR_VERSION "3.8")
-if("${Gnuradio_VERSION}" VERSION_LESS MIN_GR_VERSION)
-    MESSAGE(FATAL_ERROR "GnuRadio version required: >=\"" ${MIN_GR_VERSION} "\" found: \"" ${Gnuradio_VERSION} "\"")
-endif()
 
 include(GrVersion)
 
@@ -165,41 +161,15 @@ endif(APPLE)
 ########################################################################
 # Find build dependencies
 ########################################################################
-#set(GR_REQUIRED_COMPONENTS RUNTIME PMT BLOCKS)
-#
-#find_package(gnuradio-blocks PATHS ${GR_PREFIX}/lib/cmake/gnuradio/)
-#message(STATUS "Found Block Block: ${gnuradio-blocks_FOUND}")
+if(TARGET gnuradio::gnuradio-blocks)
+	set(GNURADIO_BLOCKS_FOUND TRUE)
+endif()
+if(TARGET gnuradio::gnuradio-uhd)
+	set(GNURADIO_UHD_FOUND TRUE)
+endif()
 
-#[[find_package(gnuradio-pmt PATHS ${GR_PREFIX}/lib/cmake/gnuradio/)
-message(STATUS "Found PMT Block: ${gnuradio-pmt_FOUND}")
-
-find_package(gnuradio-runtime PATHS ${GR_PREFIX}/lib/cmake/gnuradio/)
-message(STATUS "Found Runtime Block: ${gnuradio-runtime_FOUND}")
-
-# Software Components part of GNU Radio - These should all be present for a default install
-message(STATUS " Searching for IQ Balance...")
-#find_package(Gnuradio COMPONENTS iqbalance REQUIRED)
-find_package(gnuradio-iqbalance PATHS ${GR_PREFIX}/lib/cmake/iqbalance)
-message (STATUS "Found IQ Balance: ${gnuradio-iqbalance_FOUND}")
-
-message(STATUS " Searching for UHD Drivers...")
-#find_package(Gnuradio COMPONENTS uhd REQUIRED)
-find_package(UHD REQUIRED ${GR_PREFIX}/lib/cmake/uhd)
-message (STATUS "Found UHD Driver: ${UHD_FOUND}")
-
-message(STATUS " Searching for UHD Block...")
-#find_package(Gnuradio COMPONENTS gnuradio-uhd REQUIRED)
-find_package(gnuradio-uhd PATHS ${GR_PREFIX}/lib/cmake/gnuradio/)
-message (STATUS "Found UHD Block: ${gnuradio-uhd_FOUND}")
-
-message(STATUS " Searching for Volk...")
-#find_package(Gnuradio COMPONENTS Volk REQUIRED)
-find_package(volk PATHS ${GR_PREFIX}/lib/cmake/volk)
-message (STATUS "Found Volk: ${volk_FOUND}") ]]#
-
-find_package(GnuradioIQBalance)
+find_package(iqbalance)
 find_package(UHD)
-find_package(GnuradioUHD)
 find_package(LibOsmoSDR)
 find_package(LibRTLSDR)
 find_package(LibMiriSDR)
